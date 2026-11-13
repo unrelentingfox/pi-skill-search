@@ -5,19 +5,15 @@ It includes skills that pi-skill-router hides behind route skills.
 
 ## Install
 
-This is a local Pi package. Install its dependencies, then add its path to
-`packages` in Pi settings:
-
 ```bash
-npm ci --omit=dev
+pi install git:github.com/unrelentingfox/pi-skill-search
 ```
 
-```json
-"packages": ["/path/to/pi-skill-search"]
-```
+Include the host: Pi does not expand `git:<user>/<repo>` to GitHub. Pi clones
+the repository and installs its dependencies. Run `/reload` in open sessions.
 
-Pi does not install dependencies for local packages, so rerun
-`npm ci --omit=dev` after a dependency change.
+For development, add a local checkout to `packages` in Pi settings instead and
+run `npm ci` in it. Pi does not install dependencies for local packages.
 
 ## Use
 
