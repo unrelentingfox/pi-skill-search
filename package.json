@@ -1,0 +1,58 @@
+{
+  "name": "pi-skill-search",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Full-text search over Pi skills, including skills hidden by pi-skill-router",
+  "license": "MIT",
+  "author": "Dustin Fox",
+  "type": "module",
+  "main": "index.ts",
+  "files": [
+    "index.ts",
+    "src/**/*.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "pi-package",
+    "pi",
+    "skills",
+    "search"
+  ],
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "scripts": {
+    "test": "node --import ./scripts/pi-resolve.mjs --test __tests__/*.test.ts",
+    "coverage": "c8 --all --include='index.ts' --include='src/**/*.ts' --exclude='src/types.ts' --reporter=text --reporter=lcov --check-coverage --lines=95 --statements=95 --functions=95 --branches=95 npm test",
+    "typecheck": "tsc -p tsconfig.json",
+    "check": "npm run coverage && npm run typecheck"
+  },
+  "dependencies": {
+    "minisearch": "7.2.0"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-ai": {
+      "optional": true
+    },
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "1.2.0",
+    "@earendil-works/pi-coding-agent": "1.2.0",
+    "@types/node": "26.5.1",
+    "c8": "10.1.3",
+    "typescript": "7.0.2"
+  }
+}
